@@ -1,29 +1,38 @@
-import React from 'react';
+//Path: blog-project/src/pages/ArticleContent.js
 
-const ArticleContent = () => {
-  const id = "mastering-react";
-  const title = "Mastering React: Unlock the Power of JavaScript";
-  const author = "John Dylan";
-  const dateCreated = "June 6, 2023";
-  const content = [
-    "React - The Game Changer in JavaScript Development",
-    "React has revolutionized the way we build user interfaces in JavaScript. With its efficient virtual DOM rendering, React offers developers a high-performance solution for creating dynamic and interactive web applications. Its component-based architecture promotes code reusability and modularity, enabling developers to build complex UIs with ease. Whether you're a beginner or an experienced developer, learning React opens up a world of possibilities for creating stunning and responsive web applications.",
-    "Embrace the React Ecosystem for Enhanced Development",
-    "When diving into React, you're not just learning a single library; you're entering a vibrant ecosystem that offers a plethora of tools and libraries to enhance your development experience. From state management libraries like Redux and MobX to UI component libraries like Material-UI and Ant Design, the React ecosystem provides a wide range of options to streamline your workflow. By harnessing the power of this ecosystem, you can expedite your development process and deliver feature-rich applications in record time.",
-    "Continuous Learning and Growth with React",
-    "React is a living and evolving technology, with regular updates and new features being introduced by the React team and the community. This means that learning React is not a one-time process but a continuous journey of growth. By staying up-to-date with the latest trends, best practices, and emerging patterns in the React world, you can sharpen your skills and stay ahead in the ever-evolving landscape of front-end development. With an active and supportive community, countless online resources, and engaging conferences, React offers a vibrant learning environment that keeps you motivated and encourages lifelong learning."
-  ];
+const articles = [
+  {
+    id: 1,
+    title: 'Article 1: Gardening',
+    content: [
+      'Gardening is a wonderful hobby that brings joy and beauty to our lives. It allows us to connect with nature and create stunning landscapes in our own backyard.',
+      'When starting a garden, it\'s important to consider factors such as sunlight, soil quality, and watering needs. Choosing the right plants for your climate and understanding their care requirements is crucial for a successful garden.',
+      ' Gardening also has numerous health benefits. It provides physical exercise, reduces stress, and promotes mental well-being. Whether you have a small balcony garden or a sprawling yard, gardening can be a fulfilling and rewarding experience.'
+    ],
+    date: '2023-06-01',
+  },
+  {
+    id: 2,
+    title: 'Article 2: Weather News',
+    content: [
+      'Keeping up with the latest weather news is essential for planning outdoor activities and staying safe during extreme conditions. Weather forecasts provide valuable information about temperature, precipitation, wind patterns, and more.',
+      'Meteorologists use advanced technology and data analysis to predict weather patterns accurately. With the advent of weather satellites and computer models, forecasting has become more reliable than ever before.',
+      'Weather events such as hurricanes, tornadoes, and heatwaves have a significant impact on our lives and the environment. Understanding weather phenomena and their potential consequences helps us make informed decisions and take appropriate precautions.'
+    ],
+    date: '2023-06-02',
+  },
+  {
+    id: 3,
+    title: 'Article 3: The Future of Social Media',
+    content: [
+      'Social media has revolutionized the way we connect, share information, and interact with the world. As technology continues to advance, the future of social media holds exciting possibilities and challenges.',
+      'Artificial intelligence and machine learning are transforming social media platforms by enhancing personalization, content recommendations, and targeted advertising. These technologies enable platforms to deliver tailored experiences to users.',
+      'However, the future of social media also raises concerns about privacy, data security, and the impact of social media on mental health. Striking a balance between technological advancements and user well-being will be crucial for the sustainable growth of social media in the future.'
+    ],
+    date: '2023-06-03',
+  },
+];
 
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>Author: {author}</p>
-      <p>Date Created: {dateCreated}</p>
-      {content.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
-    </div>
-  );
-}
+export default articles;
 
-export default ArticleContent;
+

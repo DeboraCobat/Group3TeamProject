@@ -1,3 +1,5 @@
+//Path: blog-project/src/pages/Home.js
+
 const Home = () => {
     return (
         <h1>Home Page</h1>
