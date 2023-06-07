@@ -1,7 +1,21 @@
-const ArticlesList = () => {
-    return (
-        <h1>Article List Page</h1>
-    )
-}
+//Path: blog-project/src/pages/ArticlesList.js
+import React from 'react';
+import articles from './ArticleContent';
 
-export default ArticlesList;
+const ArticleList = () => {
+  return (
+    <div>
+      {articles.map(article => (
+        <div key={article.id}>
+          <h2>{article.title}</h2>
+          {article.content.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+          <p>{article.date}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ArticleList;

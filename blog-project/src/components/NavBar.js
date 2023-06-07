@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <nav>
             <ul>
@@ -10,13 +10,13 @@ const Navbar = () => {
                 <Link to="/">Home</Link>    
                 </li>
                 <li>
-                <Link to="/articles-list">Articles</Link>
+                <Link to="/ArticlesList">Articles</Link>
                 </li>
             </ul>
         </nav>
     )
 }
 
-export default Navbar
+export default NavBar
 
                         
