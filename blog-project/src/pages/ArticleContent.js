@@ -7,7 +7,7 @@ const articles = [
     content: [
       'Gardening is a wonderful hobby that brings joy and beauty to our lives. It allows us to connect with nature and create stunning landscapes in our own backyard.',
       'When starting a garden, it\'s important to consider factors such as sunlight, soil quality, and watering needs. Choosing the right plants for your climate and understanding their care requirements is crucial for a successful garden.',
-      ' Gardening also has numerous health benefits. It provides physical exercise, reduces stress, and promotes mental well-being. Whether you have a small balcony garden or a sprawling yard, gardening can be a fulfilling and rewarding experience.'
+      'Gardening also has numerous health benefits. It provides physical exercise, reduces stress, and promotes mental well-being. Whether you have a small balcony garden or a sprawling yard, gardening can be a fulfilling and rewarding experience.'
     ],
     date: '2023-06-01',
   },
@@ -33,6 +33,48 @@ const articles = [
   },
 ];
 
-export default articles;
+const ArticleContent = ({ articleId }) => {
+  const article = articles.find(article => article.id === parseInt(articleId));
 
+  if (!article) {
+    return <div>Article not found</div>;
+  }
+
+  return (
+    <div>
+      <h2>{article.title}</h2>
+      <p>Date: {article.date}</p>
+      <ul>
+        {article.content.map((paragraph, index) => (
+          <li key={index}>{paragraph}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ArticleContent;
+
+
+// const ArticleContent = ({ articleId }) => {
+//   const article = articles.find(article => article.id === parseInt(articleId));
+
+//   if (!article) {
+//     return <div>Article not found</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h2>{article.title}</h2>
+//       <p>Date: {article.date}</p>
+//       <ul>
+//         {article.content.map((paragraph, index) => (
+//           <li key={index}>{paragraph}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default ArticleContent;
 

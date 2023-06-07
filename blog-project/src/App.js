@@ -4,7 +4,6 @@ import './App.css';
 
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import SearchBar from './components/SearchBar';
 
 import HomePage from './pages/Home';
 import Article from './pages/Article';
@@ -18,8 +17,7 @@ function App() {
       <div className="App">
         <NavBar />
         <p className="welcome-text">Welcome to your blog</p>
-        <p className="description-text">Here you can write about anything you want</p>
-        <SearchBar /> {}
+        <p className="description-text">Here you can write about anything you want</p> 
 
         <div id="page-body" className="page-body">
           <Routes>
@@ -36,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+
