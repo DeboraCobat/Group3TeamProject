@@ -3,6 +3,9 @@ import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
 import Footer from './components/Footer';
 
+import 'materialize-css/dist/css/materialize.min.css';
+
+
 const Home = () => {
   return (
     <div>
