@@ -6,10 +6,10 @@ const NavBar = () => {
     <nav className="nav-wrapper">
       <ul>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/logged_in">Home</Link>
         </li>
         <li>
-          <Link href="/new-article-form">Add a new article</Link>
+        <Link href="/article-form">Write a New Article</Link>
         </li>
       </ul>
     </nav>

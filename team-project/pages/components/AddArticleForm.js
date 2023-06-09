@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { db } from 'lib/firebase';
+import styles from 'styles/articleForm.module.css';
+
 
 const ArticleForm = () => {
   const [title, setTitle] = useState('');
@@ -26,21 +28,25 @@ const ArticleForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Enter article title"
-      />
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Enter article content"
-      />
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit} className={styles['form-container']}>
+      <div className={styles['input-field']}>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter article title"
+        />
+      </div>
+      <div className={styles['input-field']}>
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Enter article content"
+        />
+      </div>
+      <button type="submit" className="btn">Submit</button>
     </form>
-  );
+  );  
 };
 
 export default ArticleForm;
