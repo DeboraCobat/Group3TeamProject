@@ -46,7 +46,7 @@ const ArticlesList = ({ initialArticles }) => {
           </p>
           <p className={styles['article-author']}>{article.author}</p>
           <p className={styles['article-category']}>{article.category}</p>
-          <p className={styles['article-date']}>{article.dateCreated.toDate().toLocaleDateString()}</p>
+          <p className={styles['article-date']}>{article.dateCreated?.toDate()?.toLocaleDateString()}</p>
         </div>
       ))}
     </div>
@@ -54,7 +54,6 @@ const ArticlesList = ({ initialArticles }) => {
 };
 
 export async function getStaticProps() {
-  // Fetch data from Firebase
   const firebaseData = await fetchData();
 
   return {
