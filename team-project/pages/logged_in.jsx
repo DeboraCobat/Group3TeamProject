@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
+import { Container, Row, Col, Button } from 'reactstrap';
 
 import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
@@ -8,7 +9,6 @@ import Footer from './components/Footer';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Button } from 'reactstrap';
 
 const LoggedIn = () => {
   const { authUser, loading, signOut } = useAuth();
@@ -29,21 +29,22 @@ const LoggedIn = () => {
         </Row>
       ) : (
         <>
-          <Row>
-            <Col>
-              {authUser && (
-                <div>Congratulations {authUser?.email}! You are logged in.</div>
-              )}
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button onClick={signOut}>Sign out</Button>
-            </Col>
-          </Row>
           <div>
             <NavBar />
-            <h1>Welcome to our Blog!</h1>
+            <Row>
+              <Col>
+                {authUser && (
+                  <div>
+                    <h4> Welcome {authUser?.email} !</h4>
+                  </div>
+                )}
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button onClick={signOut}>Sign out</Button>
+              </Col>
+            </Row>
             <ArticlesList />
             <Footer />
           </div>

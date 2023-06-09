@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import styles from 'styles/Home.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
+
+
 
 const HomePage = () => {
 

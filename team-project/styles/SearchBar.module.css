@@ -1,0 +1,13 @@
+.search-bar {
+    width: 33.33%; 
+    margin: 0 auto;
+  }
+  
+  .search-bar input[type="text"] {
+    border-radius: 5px; 
+  }
+  
+  .search-bar h4 {
+    font-size: 24px; 
+  }
+  
