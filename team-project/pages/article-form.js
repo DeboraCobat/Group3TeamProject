@@ -4,9 +4,9 @@ import NavBar from "pages/components/NavBar";
 
 const ArticleFormPage = () => {
   return (
-    <div className="articles-list-container">
+    <div className="form-container">
       <NavBar />
-      <div className="article-container">
+      <div className="form-container">
         <h3>Let's Create!</h3>
         <p>Fill out the form below to create a new article.</p>
         <ArticleForm />
@@ -15,4 +15,4 @@ const ArticleFormPage = () => {
   );
 };
 
-export default ArticleFormPage
+export default ArticleFormPage;
