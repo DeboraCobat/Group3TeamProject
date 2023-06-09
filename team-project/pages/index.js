@@ -3,16 +3,13 @@ import Link from 'next/link';
 import styles from 'styles/Home.module.css';
 
 const HomePage = () => {
-  useEffect(() => {
-    import('materialize-css/dist/js/materialize.min.js').then((M) => {
-      M.AutoInit();
-    });
-  }, []);
 
   return (
     <div className={styles.container}>
-      <h1>Welcome to our Blog</h1>
-      <Link href="/login">Login</Link>
+      <h1>TimeCrafter </h1>
+      <h3>Your Online Publishing Plataform</h3>
+      <h6>Create and share your own stories</h6>
+      <Link href="/login">Please, get in!</Link>
     </div>
   );
 };
