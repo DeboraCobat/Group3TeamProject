@@ -1,6 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
+
+import 'materialize-css/dist/css/materialize.min.css';
+import NavBar from './components/NavBar';
+import ArticlesList from './components/ArticlesList';
+import Footer from './components/Footer';
 
 import { Container, Row, Col, Button } from 'reactstrap';
 
@@ -35,6 +40,12 @@ const LoggedIn = () => {
               <Button onClick={signOut}>Sign out</Button>
             </Col>
           </Row>
+          <div>
+            <NavBar />
+            <h1>Welcome to our Blog!</h1>
+            <ArticlesList />
+            <Footer />
+          </div>
         </>
       )}
     </Container>
