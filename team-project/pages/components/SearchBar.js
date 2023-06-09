@@ -14,9 +14,6 @@ const SearchBar = ({ onSearch }) => {
               onChange={(e) => onSearch(e.target.value)}
               className={styles['input']}
             />
-            <label htmlFor="search">
-              <h4 className={styles['search-heading']}>Search</h4>
-            </label>
           </div>
         </div>
       </div>
@@ -25,32 +22,3 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
-
-// import React, { useState } from 'react';
-
-// const SearchBar = ({ onSearch }) => {
-//   const [searchQuery, setSearchQuery] = useState('');
-
-//   const handleInputChange = (event) => {
-//     setSearchQuery(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     onSearch(searchQuery);
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         value={searchQuery}
-//         onChange={handleInputChange}
-//         placeholder="Search..."
-//       />
-//       <button type="submit">Search</button>
-//     </form>
-//   );
-// };
-
-// export default SearchBar;
