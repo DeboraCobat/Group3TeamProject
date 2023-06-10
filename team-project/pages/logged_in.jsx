@@ -6,6 +6,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
 import Footer from './components/Footer';
+import Map from './components/Map';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -46,6 +47,7 @@ const LoggedIn = () => {
               </Col>
             </Row>
             <ArticlesList />
+            <Map apiKey="AIzaSyAgBm5Qg3xsSoHMIH56hfNsyVvlBoCUh6U" zoom={10} center={{ lat: 51.5074, lng: -0.1278 }} />
             <Footer />
           </div>
         </>
