@@ -20,10 +20,10 @@ const ArticlesList = ({ initialArticles }) => {
     fetchFirebaseData();
   }, []);
 
-  const filteredArticles = articles.filter(
-    (article) =>
-      article.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    const title = article.title || '';
+    return title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
 
   console.log(filteredArticles);
 
@@ -35,18 +35,20 @@ const ArticlesList = ({ initialArticles }) => {
         <div className={styles['article-container']} key={article.id}>
           <h2 className={styles['article-title']}>{article.title}</h2>
           {article.coverImage && (
-            <img
-              src={article.coverImage}
-              alt={article.title}
-              className={styles['article-cover-image']}
-            />
+            <div className={styles['article-cover-image-container']}>
+              <img
+                src={article.coverImage}
+                alt={article.title}
+                className={styles['article-cover-image']}
+              />
+            </div>
           )}
-          <p className={styles['article-paragraph']}>
-            {article.content}
-          </p>
+          <p className={styles['article-paragraph']}>{article.content}</p>
           <p className={styles['article-author']}>{article.author}</p>
           <p className={styles['article-category']}>{article.category}</p>
-          <p className={styles['article-date']}>{article.dateCreated?.toDate()?.toLocaleDateString()}</p>
+          <p className={styles['article-date']}>
+            {article.dateCreated?.toDate()?.toLocaleDateString()}
+          </p>
         </div>
       ))}
     </div>
