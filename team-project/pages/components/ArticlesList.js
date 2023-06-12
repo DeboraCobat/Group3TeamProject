@@ -6,6 +6,8 @@ import styles from '../../styles/ArticlesList.module.css';
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [articles, setArticles] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 2;
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -25,13 +27,27 @@ const ArticlesList = ({ initialArticles }) => {
     return title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
-  console.log(filteredArticles);
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage));
+  };
+
+  const previousPage = () => {
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
+  };
+
+  console.log(currentArticles);
 
   return (
     <div className={styles['articles-list-container']}>
       <SearchBar onSearch={handleSearch} />
 
-      {filteredArticles.map((article) => (
+      {currentArticles.map((article) => (
         <div className={styles['article-container']} key={article.id}>
           <h2 className={styles['article-title']}>{article.title}</h2>
           {article.coverImage && (
@@ -51,6 +67,18 @@ const ArticlesList = ({ initialArticles }) => {
           </p>
         </div>
       ))}
+
+      <div className={styles['pagination-container']}>
+        <button onClick={previousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span className={styles['page-info']}>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button onClick={nextPage} disabled={currentArticles.length < articlesPerPage}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };
