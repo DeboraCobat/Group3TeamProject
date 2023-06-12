@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
-import { fetchData } from '/lib/firebase';
-import styles from '../../styles/ArticlesList.module.css';
+import { fetchData } from '../lib/firebase';
+import styles from '../styles/ArticlesList.module.css';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,9 +45,13 @@ const ArticlesList = ({ initialArticles }) => {
 
   console.log(currentArticles);
 
+  const handleSearchButtonClick = () => {};
+
   return (
     <div className={styles['articles-list-container']}>
-      <SearchBar onSearch={handleSearch} />
+      <div className={styles['search-bar-container']}>
+        <SearchBar onSearch={handleSearch} />
+      </div>
 
       {currentArticles.map((article) => (
         <div className={styles['article-container']} key={article.id}>
@@ -69,13 +75,21 @@ const ArticlesList = ({ initialArticles }) => {
       ))}
 
       <div className={styles['pagination-container']}>
-        <button onClick={previousPage} disabled={currentPage === 1}>
+        <button
+          onClick={previousPage}
+          disabled={currentPage === 1}
+          className="btn btn-primary"
+        >
           Previous
         </button>
         <span className={styles['page-info']}>
           Page {currentPage} of {totalPages}
         </span>
-        <button onClick={nextPage} disabled={currentArticles.length < articlesPerPage}>
+        <button
+          onClick={nextPage}
+          disabled={currentArticles.length < articlesPerPage}
+          className="btn btn-primary"
+        >
           Next
         </button>
       </div>
