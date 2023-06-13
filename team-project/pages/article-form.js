@@ -1,6 +1,7 @@
-import React from "react";
-import ArticleForm from "pages/components/AddArticleForm";
-import NavBar from "pages/components/NavBar";
+import React from 'react';
+import ArticleForm from "components/ArticleForm"; 
+import NavBar from "components/NavBar";
+import styles from 'styles/articleForm.module.css';
 
 const ArticleFormPage = () => {
   return (
@@ -9,10 +10,10 @@ const ArticleFormPage = () => {
       <div className="article-container">
         <h3>Let's Create!</h3>
         <p>Fill out the form below to create a new article.</p>
-        <ArticleForm />
+        <ArticleForm /> 
       </div>
     </div>
   );
 };
 
-export default ArticleFormPage
+export default ArticleFormPage;
