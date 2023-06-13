@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 
-import 'materialize-css/dist/css/materialize.min.css';
 import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
 import Footer from './components/Footer';
 import Map from './components/Map';
 
-import { Container, Row, Col, Button } from 'reactstrap';
+// import { Container, Row, Col, Button } from 'reactstrap';
 
 const LoggedIn = () => {
   const { authUser, loading, signOut } = useAuth();

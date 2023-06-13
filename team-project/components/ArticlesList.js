@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import { fetchData } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');

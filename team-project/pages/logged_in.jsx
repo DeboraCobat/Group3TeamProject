@@ -2,14 +2,11 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import { Container, Row, Col, Button } from 'reactstrap';
-
 import NavBar from '../components/NavBar';
 import ArticlesList from '../components/ArticlesList';
 import Footer from '../components/Footer';
 import Map from '../components/Map';
-
-import 'materialize-css/dist/css/materialize.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/LoggedIn.module.css';
 
 const LoggedIn = () => {
   const { authUser, loading, signOut } = useAuth();
@@ -30,24 +27,23 @@ const LoggedIn = () => {
         </Row>
       ) : (
         <>
+          <Row>
+            <Col>
+              {authUser && (
+                <div>Congratulations {authUser?.email}! You are logged in.</div>
+              )}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button onClick={signOut}>Sign out</Button>
+            </Col>
+          </Row>
           <div>
             <NavBar />
-            <Row>
-              <Col>
-                {authUser && (
-                  <div>
-                    <h4> Welcome {authUser?.email} !</h4>
-                  </div>
-                )}
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Button onClick={signOut}>Sign out</Button>
-              </Col>
-            </Row>
+            <h1>Welcome to our Blog!</h1>
             <ArticlesList />
-            <Map apiKey="AIzaSyAgBm5Qg3xsSoHMIH56hfNsyVvlBoCUh6U" zoom={10} center={{ lat: 51.5074, lng: -0.1278 }} />
+            <Map apiKey="AIzaSyAgBm5Qg3xsSoHMIH56hfNsyVvlBoCUh6U" zoom={12} center={{ lat: 37.7749, lng: -122.4194 }} />
             <Footer />
           </div>
         </>

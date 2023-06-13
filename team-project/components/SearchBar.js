@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import M from 'materialize-css';
 import '/styles/SearchBar.module.css';
 
 const SearchBar = ({ onSearch }) => {
