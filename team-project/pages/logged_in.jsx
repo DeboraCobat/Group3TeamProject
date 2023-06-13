@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
-import { Container, Row, Col, Button } from 'reactstrap';
 import NavBar from '../components/NavBar';
 import ArticlesList from '../components/ArticlesList';
 import Footer from '../components/Footer';
 import Map from '../components/Map';
-import '../styles/LoggedIn.module.css';
+import styles from '../styles/LoggedIn.module.css';
 
 const LoggedIn = () => {
   const { authUser, loading, signOut } = useAuth();
@@ -20,35 +19,26 @@ const LoggedIn = () => {
   }, [authUser, loading, router]);
 
   return (
-    <Container>
+    <div className={styles.container}>
       {loading ? (
-        <Row>
-          <Col>Loading....</Col>
-        </Row>
+        <div>Loading....</div>
       ) : (
         <>
-          <Row>
-            <Col>
-              {authUser && (
-                <div>Congratulations {authUser?.email}! You are logged in.</div>
-              )}
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button onClick={signOut}>Sign out</Button>
-            </Col>
-          </Row>
-          <div>
-            <NavBar />
-            <h1>Welcome to our Blog!</h1>
+          <NavBar />
+          <div className={styles.content}>
+            <div className={styles.welcomeMessage}>
+              {authUser && <div>Welcome {authUser?.email}!</div>}
+            </div>
+            <div className={styles.signOutButton}>
+            <button className={styles.button} onClick={signOut}>Sign out</button>
+            </div>
             <ArticlesList />
             <Map apiKey="AIzaSyAgBm5Qg3xsSoHMIH56hfNsyVvlBoCUh6U" zoom={12} center={{ lat: 37.7749, lng: -122.4194 }} />
             <Footer />
           </div>
         </>
       )}
-    </Container>
+    </div>
   );
 };
 

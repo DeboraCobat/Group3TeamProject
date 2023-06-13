@@ -6,6 +6,6 @@ body {
   background-image: url('../public/backLogin.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   font-family: League Spartan, sans-serif;
 }
