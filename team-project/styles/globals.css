@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 html,
 body {
@@ -7,7 +7,7 @@ body {
   background-image: url('../public/backLogin.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  font-family: League Spartan, sans-serif;
+  background-repeat: repeat;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
   }
