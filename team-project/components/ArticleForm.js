@@ -1,4 +1,3 @@
-// 
 import React, { useState } from 'react';
 import { db } from 'lib/firebase';
 import styles from 'styles/ArticleForm.module.css';
@@ -48,7 +47,7 @@ const ArticleForm = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter article title"
+            placeholder="Enter title"
           />
         </div>
         <div className={styles['input-field']}>
@@ -63,7 +62,7 @@ const ArticleForm = () => {
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            placeholder="Enter article author"
+            placeholder="Enter author's name"
           />
         </div>
         <div className={styles['input-field']}>
@@ -71,7 +70,7 @@ const ArticleForm = () => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            placeholder="Enter article category"
+            placeholder="Select a category"
           />
         </div>
         <div className={styles['input-field']}>
@@ -79,10 +78,12 @@ const ArticleForm = () => {
             type="text"
             value={coverImage}
             onChange={(e) => setCoverImage(e.target.value)}
-            placeholder="Enter article cover image link"
+            placeholder="Enter a link to a .jpg"
           />
         </div>
-        <button type="submit" className="btn">Submit</button>
+        <button type="submit" className={`${styles.button} button`}>
+          Submit
+        </button>
       </form>
     </div>
   );

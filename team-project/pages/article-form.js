@@ -9,7 +9,7 @@ const ArticleFormPage = () => {
       <NavBar />
       <div className={styles['article-container']}>
         <h3>Let's Create!</h3>
-        <p>Fill out the form below to create a new article.</p>
+        <p>Fill out the form below to create a new article</p>
         <ArticleForm />
       </div>
     </div>
