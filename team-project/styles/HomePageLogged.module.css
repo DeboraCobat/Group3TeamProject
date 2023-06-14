@@ -17,20 +17,21 @@
 
 .button-container {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column-reverse;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  gap: 5
 }
 
+
 .button {
-  flex: 1;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 4px;
   font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: none;
+  border: 1px solid #9991d1;
+  margin: 10px;
   background-color: #9991d1;
   color: #bdd4d0;
   font-weight: bold;
