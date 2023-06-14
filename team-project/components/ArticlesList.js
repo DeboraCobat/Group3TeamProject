@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from '../components/SearchBar';
+import SearchBar from './SearchBar';
 import { fetchData } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
 
@@ -76,7 +76,7 @@ const ArticlesList = ({ initialArticles }) => {
         <button
           onClick={previousPage}
           disabled={currentPage === 1}
-          className="btn btn-primary"
+          className="btn"
         >
           Previous
         </button>
@@ -86,7 +86,7 @@ const ArticlesList = ({ initialArticles }) => {
         <button
           onClick={nextPage}
           disabled={currentArticles.length < articlesPerPage}
-          className="btn btn-primary"
+          className="btn"
         >
           Next
         </button>

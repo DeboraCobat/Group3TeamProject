@@ -10,7 +10,7 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     signOut();
-    router.push('/home_page');
+    router.push('/');
   };
 
   return (

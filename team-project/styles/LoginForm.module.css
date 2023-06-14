@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 .container {
   display: flex;
@@ -11,7 +12,7 @@
   margin: auto;
   max-width: 400px;
   margin-top: 150px;
-
+  font-family: 'Poppins', sans-serif;
 }
 
 .content {
@@ -40,7 +41,7 @@
 }
 
 .content form label {
-  color: #ffffff;
+  color: #9991d1;
   font-weight: bold;
 }
 
@@ -49,7 +50,8 @@
   padding: 0.5rem;
   border: none;
   border-radius: 4px;
-  outline: none;
+  outline: none;  
+  font-family: 'Poppins', sans-serif;;
 }
 
 .content form .buttonContainer {
@@ -57,15 +59,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;;
+
 }
 
 .content form .button {
   padding: 0.5rem 1.5rem;
-  background-color: #bdd4d0;
-  color: #000000;
-  border-radius: 4px;
+  border: none;
+  background-color: #9991d1;
+  color: #bdd4d0;
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;;
   margin-top: 20px;
 }
 

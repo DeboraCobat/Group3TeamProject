@@ -16,7 +16,7 @@ const LoginForm = () => {
     signInWithEmailAndPassword(email, password)
       .then((authUser) => {
         console.log("Success. The user is created in firebase");
-        router.push('/logged_in');
+        router.push('/home-page-logged');
       })
       .catch((error) => {
         setError(error.message);

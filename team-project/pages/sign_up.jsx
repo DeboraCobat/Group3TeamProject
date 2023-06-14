@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import { useState } from 'react';
-
 import styles from '../styles/SignUp.module.css';
 
 const SignUp = () => {
@@ -19,7 +18,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
           console.log("Success. The user is created in firebase");
-          router.push("/logged_in");
+          router.push('/home-page-logged');
         })
         .catch(error => {
           setError(error.message);
