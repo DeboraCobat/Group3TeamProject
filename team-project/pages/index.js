@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from 'styles/Home.module.css';
 import backgroundVideo from 'public/backvideo.mp4';
 
 const HomePage = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <video autoPlay loop muted className={styles.backgroundVideo}>
@@ -17,8 +20,10 @@ const HomePage = () => {
           <Link href="/login">
             <div className={styles.button}>Login</div>
           </Link>
-          <Link href="/home-page">
-            <div className={styles.button}>Enter as a Guest</div>
+          <Link href="/home_page">
+            <div className={styles.button} onClick={() => router.push('/home_page')}>
+              Enter as a Guest
+            </div>
           </Link>
         </div>
       </div>
