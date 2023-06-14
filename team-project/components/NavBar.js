@@ -13,11 +13,24 @@ const NavBar = () => {
     router.push('/articles-list');
   };  
 
+  const logoLink = authUser ? '/home-page-logged' : '/';
+
+  const isActivePage = (page) => {
+    return router.pathname === page ? styles.selected : '';
+  };
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navList}>
         <li className={styles.navItem}>
-          <Link href="/articles-list">Go to all stories!</Link>
+          <Link href={logoLink} legacyBehavior>
+            <div className={styles.logoContainer}>
+              <img src="/logo.png" alt="Logo" className={styles.logo} />
+            </div>
+          </Link>
+        </li>
+        <li className={styles.navItem}>
+          <Link href="/articles-list">Read all stories!</Link>
         </li>
         {authUser && (
           <li className={styles.navItem}>

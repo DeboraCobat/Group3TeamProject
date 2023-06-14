@@ -10,14 +10,17 @@
   align-items: center;
   z-index: 1;
 }
-
-.brand {
-  color: #ffffff;
-  font-size: 1rem;
+a
+.logoContainer {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 15px;
+}
+
+.logo {
+  max-width: 30px;
 }
 
 .navList {
@@ -37,9 +40,19 @@
   font-size: 1rem;
 }
 
-.navItem a:hover {
-  color: #a3c1bd;
+.navItem a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
 }
+
+.navItem a:hover,
+.navItem a:focus,
+.navItem a:active,
+.navItem a.selected {
+  color: #7ed957;
+}
+
 
 .navItems {
   display: flex;
@@ -64,5 +77,5 @@
 }
 
 .signOutButton:hover {
-  color: #a3c1bd;
+  color:  #7ED957
 }
