@@ -1,6 +1,7 @@
+// 
 import React, { useState } from 'react';
 import { db } from 'lib/firebase';
-import styles from 'styles/articleForm.module.css';
+import styles from 'styles/ArticleForm.module.css';
 
 const ArticleForm = () => {
   const [title, setTitle] = useState('');
@@ -39,49 +40,51 @@ const ArticleForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles['form-container']}>
-      {successMessage && <p>{successMessage}</p>}
-      <div className={styles['input-field']}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter article title"
-        />
-      </div>
-      <div className={styles['input-field']}>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Enter article content"
-        />
-      </div>
-      <div className={styles['input-field']}>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          placeholder="Enter article author"
-        />
-      </div>
-      <div className={styles['input-field']}>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="Enter article category"
-        />
-      </div>
-      <div className={styles['input-field']}>
-        <input
-          type="text"
-          value={coverImage}
-          onChange={(e) => setCoverImage(e.target.value)}
-          placeholder="Enter article cover image link"
-        />
-      </div>
-      <button type="submit" className="btn">Submit</button>
-    </form>
+    <div className={styles['form-wrapper']}>
+      <form onSubmit={handleSubmit} className={styles['form-container']}>
+        {successMessage && <p>{successMessage}</p>}
+        <div className={styles['input-field']}>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter article title"
+          />
+        </div>
+        <div className={styles['input-field']}>
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Enter article content"
+          />
+        </div>
+        <div className={styles['input-field']}>
+          <input
+            type="text"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            placeholder="Enter article author"
+          />
+        </div>
+        <div className={styles['input-field']}>
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="Enter article category"
+          />
+        </div>
+        <div className={styles['input-field']}>
+          <input
+            type="text"
+            value={coverImage}
+            onChange={(e) => setCoverImage(e.target.value)}
+            placeholder="Enter article cover image link"
+          />
+        </div>
+        <button type="submit" className="btn">Submit</button>
+      </form>
+    </div>
   );
 };
 
