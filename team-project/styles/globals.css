@@ -3,7 +3,6 @@
 html,
 body {
   padding: auto;
-  padding-top: 35px;
   background-image: url('../public/backLogin.jpg');
   background-size: cover;
   background-position: center;
