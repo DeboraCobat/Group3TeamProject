@@ -2,9 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthUserContext';
 import styles from '../styles/NavBar.module.css';
+import { useRouter } from 'next/router';
 
 const NavBar = () => {
   const { authUser, signOut } = useAuth();
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    signOut();
+    router.push('/home_page');
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -17,11 +24,19 @@ const NavBar = () => {
         )}
       </ul>
       <div className={styles.navItems}>
-        {authUser && <div className={styles.welcomeMessage}>Welcome {authUser.email}!</div>}
-        {authUser && (
-          <button className={styles.signOutButton} onClick={signOut}>
-            Sign out
-          </button>
+        {authUser ? (
+          <>
+            <div className={styles.welcomeMessage}>Welcome {authUser.email}!</div>
+            <button className={styles.signOutButton} onClick={handleSignOut}>
+              Sign out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/login" legacyBehavior>
+              <a className={styles.navLink}>Login/Register</a>
+            </Link>
+          </>
         )}
       </div>
     </nav>
