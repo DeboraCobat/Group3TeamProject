@@ -10,35 +10,45 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     signOut();
-    router.push('/');
-  };
+    router.push('/articles-list');
+  };  
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.brand}>TC</div>
       <ul className={styles.navList}>
+        <li className={styles.navItem}>
+          <Link href="/articles-list">Go to all stories!</Link>
+        </li>
         {authUser && (
           <li className={styles.navItem}>
-            <Link href="/article-form">Write a new article</Link>
+            <Link href="/article-form">Write a new story</Link>
           </li>
         )}
-      </ul>
-      <div className={styles.navItems}>
         {authUser ? (
           <>
-            <div className={styles.welcomeMessage}>Welcome {authUser.email}!</div>
-            <button className={styles.signOutButton} onClick={handleSignOut}>
-              Sign out
-            </button>
+            <li className={styles.navItem}>
+              <Link href="/user-profile" legacyBehavior>
+                <a className={styles.navLink}>Profile</a>
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <div className={styles.container}>
+                <div className={styles.signOutContainer}>
+                  <button className={styles.signOutButton} onClick={handleSignOut}>
+                    Sign out
+                  </button>
+                </div>
+              </div>
+            </li>
           </>
         ) : (
-          <>
+          <li className={styles.navItem}>
             <Link href="/login" legacyBehavior>
               <a className={styles.navLink}>Login/Register</a>
             </Link>
-          </>
+          </li>
         )}
-      </div>
+      </ul>
     </nav>
   );
 };

@@ -15,7 +15,7 @@ const Index = () => {
       <div className={styles.content}>
         <div className={styles.buttonContainer}>
         
-          <Link href="/" style={{ textDecoration: 'none' }}>
+          <Link href="/articles-list" style={{ textDecoration: 'none' }}>
             <div className={styles.button} onClick={() => router.push('/')}>
               Enter as a Guest
             </div>
