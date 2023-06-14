@@ -26,12 +26,12 @@ const LoggedIn = () => {
         <>
           <NavBar />
           <div className={styles.content}>
-            <div className={styles.welcomeMessage}>
+            {/* <div className={styles.welcomeMessage}>
               {authUser && <div>Welcome {authUser?.email}!</div>}
             </div>
             <div className={styles.signOutButton}>
             <button className={styles.button} onClick={signOut}>Sign out</button>
-            </div>
+            </div> */}
             <ArticlesList />
             <Map apiKey="AIzaSyAgBm5Qg3xsSoHMIH56hfNsyVvlBoCUh6U" zoom={12} center={{ lat: 37.7749, lng: -122.4194 }} />
             <Footer />
