@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, updateDoc } from 'firebase/firestore';
 import styles from 'styles/ArticleForm.module.css';
 import { useAuth } from '../context/AuthUserContext';
 import { useRouter } from 'next/router';
@@ -12,17 +12,21 @@ const ArticleForm = () => {
   const [coverImage, setCoverImage] = useState(''); 
   const [successMessage, setSuccessMessage] = useState(''); 
 
-  const { authUser } = useAuth(); // Authenticated user
+  const { authUser } = useAuth(); 
+  // Authenticated user
   const router = useRouter(); 
 
   const handleLoginClick = () => {
-    router.push('/login'); // Handle login click
+    router.push('/login'); 
+    // Handle login click
   };
 
-  const db = getFirestore(); // Firestore database 
+  const db = getFirestore(); 
+  // Firestore database 
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
+    // Prevent form submission
 
     const article = {
       title,
@@ -35,8 +39,12 @@ const ArticleForm = () => {
     }; // Create article object
 
     try {
-      const docRef = await addDoc(collection(db, 'articles'), article); // Add article to the 'articles' collection in Firestore
-      console.log('Article submitted successfully! Document ID:', docRef.id); // success message
+      const docRef = await addDoc(collection(db, 'articles'), article); 
+      // Add article to the 'articles' collection in Firestore
+      console.log('Article submitted successfully! Document ID:', docRef.id); 
+      // success message
+
+      await updateDoc(docRef, {id: docRef.id}); // Update article with ID
 
       setTitle(''); 
       setContent(''); 
@@ -65,7 +73,7 @@ const ArticleForm = () => {
   return (
     <div className={styles['form-wrapper']}>
       <form onSubmit={handleSubmit} className={styles['form-container']}>
-        {successMessage && <p>{successMessage}</p>} {/* Display success message if it exists */}
+        {successMessage && <p>{successMessage}</p>}
         <div className={styles['input-field']}>
           <input
             type="text"
