@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import styles from 'styles/ArticleForm.module.css';
+import { useAuth } from '../context/AuthUserContext';
+import { useRouter } from 'next/router';
+
 
 const ArticleForm = () => {
   const [title, setTitle] = useState('');
@@ -9,6 +12,13 @@ const ArticleForm = () => {
   const [category, setCategory] = useState('');
   const [coverImage, setCoverImage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  const { authUser } = useAuth();
+  const router = useRouter();
+
+  const handleLoginClick = () => {
+    router.push('/login');
+  };
 
   const db = getFirestore();
 
@@ -39,6 +49,18 @@ const ArticleForm = () => {
       setSuccessMessage('Error submitting article. Please try again.');
     }
   };
+
+  if (!authUser) {
+    return (
+      <p>
+        Please{' '}
+        <a href="/login" onClick={handleLoginClick}>
+          log in
+        </a> {' '}
+        to access this page.
+      </p>
+    );
+  }
 
   return (
     <div className={styles['form-wrapper']}>

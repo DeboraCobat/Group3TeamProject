@@ -70,7 +70,7 @@ const ArticlesList = ({ initialArticles }) => {
         </div>
       ))}
 
-      <Pagination
+      <Pagination 
         currentPage={currentPage}
         totalPages={totalPages}
         onNextPage={nextPage}
