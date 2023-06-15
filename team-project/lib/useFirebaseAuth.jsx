@@ -32,10 +32,28 @@ export default function useFirebaseAuth() {
   };
 
   const signInWithEmailAndPassword = (email, password) =>
-    firebase.auth().signInWithEmailAndPassword(email, password);
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const { user } = userCredential;
+      if (user && !user.emailVerified) {
+        throw new Error('Email not verified');
+      }
+      return userCredential;
+    });
 
-  const createUserWithEmailAndPassword = (email, password) =>
-    firebase.auth().createUserWithEmailAndPassword(email, password);
+
+  const createUserWithEmailAndPassword = (email, password) => {
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Send email verification
+        userCredential.user.sendEmailVerification();
+        return userCredential;
+      });
+  };
 
   const signOut = () =>
     firebase.auth().signOut().then(clear);
