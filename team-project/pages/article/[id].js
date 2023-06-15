@@ -1,13 +1,12 @@
-import ArticlePage from 'components/ArticlePage';
 import React from 'react';
 import NavBar from 'components/NavBar';
+import ArticlePage from 'components/ArticlePage';
 
-const Article = ({ articleId }) => {
+const Article = () => {
   return (
     <div>
       <NavBar />
-      <h1>Here is the full story ...</h1>
-      <ArticlePage articleId={articleId} />
+      <ArticlePage />
     </div>
   );
 };

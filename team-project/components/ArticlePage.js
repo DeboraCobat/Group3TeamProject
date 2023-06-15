@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../lib/firebase';
+import { fetchArticleById } from '../lib/firebase'; // 
 import styles from '../styles/ArticlesList.module.css';
 import Like from './Like';
 
@@ -11,13 +10,8 @@ const ArticlePage = ({ articleId }) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const docRef = doc(db, 'articles', articleId);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setArticle(docSnap.data());
-        } else {
-          console.log('No such article!');
-        }
+        const articleData = await fetchArticleById(articleId);
+        setArticle(articleData);
       } catch (error) {
         console.error('Error retrieving article:', error);
       } finally {
