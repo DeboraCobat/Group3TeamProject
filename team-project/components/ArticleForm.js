@@ -31,6 +31,7 @@ const ArticleForm = () => {
       category,
       coverImage,
       createdAt: new Date(),
+      userId: authUser.uid,
     }; // Create article object
 
     try {
