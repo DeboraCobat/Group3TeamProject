@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from 'lib/firebase';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import styles from 'styles/ArticleForm.module.css';
 
 const ArticleForm = () => {
@@ -9,6 +9,8 @@ const ArticleForm = () => {
   const [category, setCategory] = useState('');
   const [coverImage, setCoverImage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  const db = getFirestore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const ArticleForm = () => {
     };
 
     try {
-      const docRef = await db.collection('articles').add(article);
+      const docRef = await addDoc(collection(db, 'articles'), article);
       console.log('Article submitted successfully! Document ID:', docRef.id);
 
       setTitle('');
