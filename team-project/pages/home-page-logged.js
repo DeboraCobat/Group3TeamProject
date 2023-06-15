@@ -1,17 +1,29 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/HomePageLogged.module.css';
 import { useAuth } from '../context/AuthUserContext';
+import { useRouter } from 'next/router';
 
 const HomePageLogged = () => {
   const { authUser, signOut } = useAuth();
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleSignOut = () => {
     signOut();
     router.push('/');
-  };  
+  };
 
+  useEffect(() => {
+    // Check if the user is authenticated
+    if (!authUser) {
+      // Redirect the user to the login page
+      router.push('/login');
+    }
+  }, [authUser, router]);
+
+  if (!authUser) {
+    return null; // Render nothing while redirecting
+  }
 
   return (
     <div className={styles.container}>

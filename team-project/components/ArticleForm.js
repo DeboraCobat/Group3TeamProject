@@ -4,26 +4,25 @@ import styles from 'styles/ArticleForm.module.css';
 import { useAuth } from '../context/AuthUserContext';
 import { useRouter } from 'next/router';
 
-
 const ArticleForm = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
-  const [coverImage, setCoverImage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [title, setTitle] = useState(''); 
+  const [content, setContent] = useState(''); 
+  const [author, setAuthor] = useState(''); 
+  const [category, setCategory] = useState(''); 
+  const [coverImage, setCoverImage] = useState(''); 
+  const [successMessage, setSuccessMessage] = useState(''); 
 
-  const { authUser } = useAuth();
-  const router = useRouter();
+  const { authUser } = useAuth(); // Authenticated user
+  const router = useRouter(); 
 
   const handleLoginClick = () => {
-    router.push('/login');
+    router.push('/login'); // Handle login click
   };
 
-  const db = getFirestore();
+  const db = getFirestore(); // Firestore database 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent form submission
 
     const article = {
       title,
@@ -32,21 +31,21 @@ const ArticleForm = () => {
       category,
       coverImage,
       createdAt: new Date(),
-    };
+    }; // Create article object
 
     try {
-      const docRef = await addDoc(collection(db, 'articles'), article);
-      console.log('Article submitted successfully! Document ID:', docRef.id);
+      const docRef = await addDoc(collection(db, 'articles'), article); // Add article to the 'articles' collection in Firestore
+      console.log('Article submitted successfully! Document ID:', docRef.id); // success message
 
-      setTitle('');
-      setContent('');
-      setAuthor('');
-      setCategory('');
-      setCoverImage('');
-      setSuccessMessage('Article submitted successfully!');
+      setTitle(''); 
+      setContent(''); 
+      setAuthor(''); 
+      setCategory(''); 
+      setCoverImage(''); 
+      setSuccessMessage('Article submitted successfully!'); // success message
     } catch (error) {
-      console.error('Error submitting article:', error);
-      setSuccessMessage('Error submitting article. Please try again.');
+      console.error('Error submitting article:', error); 
+      setSuccessMessage('Error submitting article. Please try again.'); // error messages
     }
   };
 
@@ -59,13 +58,13 @@ const ArticleForm = () => {
         </a> {' '}
         to access this page.
       </p>
-    );
+    ); // Render login prompt if user is not authenticated
   }
 
   return (
     <div className={styles['form-wrapper']}>
       <form onSubmit={handleSubmit} className={styles['form-container']}>
-        {successMessage && <p>{successMessage}</p>}
+        {successMessage && <p>{successMessage}</p>} {/* Display success message if it exists */}
         <div className={styles['input-field']}>
           <input
             type="text"
@@ -79,7 +78,7 @@ const ArticleForm = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Enter article content"
-          />
+          /> 
         </div>
         <div className={styles['input-field']}>
           <input
@@ -87,7 +86,7 @@ const ArticleForm = () => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             placeholder="Enter author's name"
-          />
+          /> 
         </div>
         <div className={styles['input-field']}>
           <input
@@ -95,7 +94,7 @@ const ArticleForm = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             placeholder="Select a category"
-          />
+          /> 
         </div>
         <div className={styles['input-field']}>
           <input
