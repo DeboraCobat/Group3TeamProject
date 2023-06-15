@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import { fetchData } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
+import Pagination from './Pagination';
 
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,7 +12,7 @@ const ArticlesList = ({ initialArticles }) => {
 
   const handleSearch = (query) => {
     setSearchQuery(query);
-    setCurrentPage(1); // Reset the current page when a new search query is entered
+    setCurrentPage(1);
   };
 
   useEffect(() => {
@@ -69,25 +70,12 @@ const ArticlesList = ({ initialArticles }) => {
         </div>
       ))}
 
-      <div className={styles['pagination-container']}>
-        <button
-          onClick={previousPage}
-          disabled={currentPage === 1}
-          className="btn"
-        >
-          Previous
-        </button>
-        <span className={styles['page-info']}>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={nextPage}
-          disabled={currentArticles.length < articlesPerPage || currentPage === totalPages}
-          className="btn"
-        >
-          Next
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={nextPage}
+        onPreviousPage={previousPage}
+      />
     </div>
   );
 };

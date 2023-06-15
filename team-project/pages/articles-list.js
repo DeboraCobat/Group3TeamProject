@@ -2,6 +2,7 @@ import React from 'react';
 import ArticlesList from 'components/ArticlesList';
 import NavBar from 'components/NavBar';
 import styles from 'styles/ArticlesList.module.css';
+import Footer from 'components/Footer';
 
 const ArticleFormPage = () => {
   return (
@@ -10,6 +11,7 @@ const ArticleFormPage = () => {
       <div className={styles['article-container']}>
         <ArticlesList />
       </div>
+      < Footer />
     </div>
   );
 };

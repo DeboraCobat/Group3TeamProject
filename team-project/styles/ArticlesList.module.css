@@ -44,25 +44,3 @@
   border-radius: 5px;
 }
 
-.pagination-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px; 
-  
-}
-
-.pagination-container .btn {
-  margin: 0 5px;
-  padding: 10px 20px;
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.page-info {
-  font-size: 16px;
-  color: #666;
-}

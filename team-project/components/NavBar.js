@@ -29,10 +29,12 @@ const NavBar = () => {
             </div>
           </Link>
         </li>
+        {authUser && (
         <li className={styles.navItem}>
           <Link href="/articles-list">Read all stories!</Link>
         </li>
-        {authUser && (
+         )}
+          {authUser && (
           <li className={styles.navItem}>
             <Link href="/article-form">Write a new story</Link>
           </li>
