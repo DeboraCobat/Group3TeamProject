@@ -46,7 +46,7 @@ const ArticlesList = ({ initialArticles }) => {
   return (
     <div className={styles['articles-list-container']}>
       <div className={styles['search-bar-container']}>
-        <SearchBar onSearch={handleSearch} /> // Renders the search bar component
+        <SearchBar onSearch={handleSearch} /> 
       </div>
 
       {currentArticles.map((article) => (
@@ -65,7 +65,7 @@ const ArticlesList = ({ initialArticles }) => {
           <p className={styles['article-author']}>{article.author}</p>
           <p className={styles['article-category']}>{article.category}</p>
           <p className={styles['article-date']}>
-            {article.dateCreated?.toDate()?.toLocaleDateString()} // Renders the formatted date
+            {article.dateCreated?.toDate()?.toLocaleDateString()}
           </p>
         </div>
       ))}
