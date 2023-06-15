@@ -5,48 +5,48 @@ import styles from '../styles/ArticlesList.module.css';
 import Pagination from './Pagination';
 
 const ArticlesList = ({ initialArticles }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [articles, setArticles] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(''); 
+  const [articles, setArticles] = useState([]); 
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 2;
+  const articlesPerPage = 2; // Number of articles to display per page
 
   const handleSearch = (query) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
+    setSearchQuery(query); // Updates the search query state
+    setCurrentPage(1); // Resets the current page to the first page
   };
 
   useEffect(() => {
     const fetchFirebaseData = async () => {
-      const firebaseData = await fetchData();
-      setArticles(firebaseData || []);
+      const firebaseData = await fetchData(); // Fetches data from Firebase
+      setArticles(firebaseData || []); // Updates the articles state with the fetched data
     };
 
-    fetchFirebaseData();
+    fetchFirebaseData(); // Calls the fetchFirebaseData function when the component mounts
   }, []);
 
   const filteredArticles = articles.filter((article) => {
     const title = article.title || '';
-    return title.toLowerCase().includes(searchQuery.toLowerCase());
+    return title.toLowerCase().includes(searchQuery.toLowerCase()); // Filters the articles based on the search query
   });
 
-  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage); // Calculates the total number of pages
 
-  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfLastArticle = currentPage * articlesPerPage; 
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
+  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle); // Gets the articles for the current page
 
   const nextPage = () => {
-    setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage));
+    setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage)); // Updates the current page to the next page
   };
 
   const previousPage = () => {
-    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage)); // Updates the current page to the previous page
   };
 
   return (
     <div className={styles['articles-list-container']}>
       <div className={styles['search-bar-container']}>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} /> // Renders the search bar component
       </div>
 
       {currentArticles.map((article) => (
@@ -65,7 +65,7 @@ const ArticlesList = ({ initialArticles }) => {
           <p className={styles['article-author']}>{article.author}</p>
           <p className={styles['article-category']}>{article.category}</p>
           <p className={styles['article-date']}>
-            {article.dateCreated?.toDate()?.toLocaleDateString()}
+            {article.dateCreated?.toDate()?.toLocaleDateString()} // Renders the formatted date
           </p>
         </div>
       ))}
@@ -75,17 +75,17 @@ const ArticlesList = ({ initialArticles }) => {
         totalPages={totalPages}
         onNextPage={nextPage}
         onPreviousPage={previousPage}
-      />
+      /> // Renders the pagination component
     </div>
   );
 };
 
 export async function getStaticProps() {
-  const firebaseData = await fetchData();
+  const firebaseData = await fetchData(); // Fetches data from Firebase
 
   return {
     props: {
-      initialArticles: firebaseData,
+      initialArticles: firebaseData, // Passes the fetched data as initial articles
     },
   };
 }
