@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import { fetchData } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
 import Pagination from './Pagination';
+import Like from 'components/Like';
 
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -67,6 +68,7 @@ const ArticlesList = ({ initialArticles }) => {
           <p className={styles['article-date']}>
             {article.dateCreated?.toDate()?.toLocaleDateString()}
           </p>
+          <Like />
         </div>
       ))}
 
