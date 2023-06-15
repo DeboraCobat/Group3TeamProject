@@ -3,26 +3,34 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  top: 65px;
+  top: 25px;
   position: relative;
 }
 
 .searchInput {
-  padding: 1rem 5rem;
-  border: 1px solid #dddddd;
-  border-radius: 5px;
-  margin-right: 0.5rem;
+  width: 500px;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  border: 1px solid #8077b9;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .searchButton {
   padding: 1rem 2rem;
-  background-color: #bdd4d0;
-  color: #000000;
-  border: none;
-  border-radius: 5px;
+  margin-left: 1rem;
+  background-color: #8077b9;
+  color: #f0f0f0;
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .searchButton:hover {
-  background-color: #844dc2;
+  background-color: #7ed957;
+  color: #333;
 }

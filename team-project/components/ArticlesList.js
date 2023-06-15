@@ -11,6 +11,7 @@ const ArticlesList = ({ initialArticles }) => {
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+    setCurrentPage(1); // Reset the current page when a new search query is entered
   };
 
   useEffect(() => {
@@ -40,10 +41,6 @@ const ArticlesList = ({ initialArticles }) => {
   const previousPage = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
   };
-
-  console.log(currentArticles);
-
-  const handleSearchButtonClick = () => {};
 
   return (
     <div className={styles['articles-list-container']}>
@@ -85,7 +82,7 @@ const ArticlesList = ({ initialArticles }) => {
         </span>
         <button
           onClick={nextPage}
-          disabled={currentArticles.length < articlesPerPage}
+          disabled={currentArticles.length < articlesPerPage || currentPage === totalPages}
           className="btn"
         >
           Next
