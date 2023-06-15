@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import firebase from '../lib/firebase';
+import firebase from '../../lib/firebase';
 import HomePage from '../home-page-logged';
 
 const EmailVerificationPage = () => {
