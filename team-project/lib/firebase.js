@@ -32,11 +32,7 @@ export const fetchData = async () => {
 export const fetchArticleById = async (articleId) => {
   try {
     const snapshot = await firebase.firestore().collection('articles').doc(articleId).get();
-    if (snapshot.exists()) {
-      return { id: snapshot.id, ...snapshot.data() };
-    } else {
-      throw new Error('Article not found');
-    }
+    return { id: snapshot.id, ...snapshot.data() };
   } catch (error) {
     console.error('Error fetching article from Firebase:', error);
     throw error;

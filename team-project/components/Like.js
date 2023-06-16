@@ -19,7 +19,7 @@ const ThumbsUp = () => {
       <button onClick={handleLike}>
         {isLiked ? '👍 Liked' : '👍 Like'}
       </button>
-      <span>{count} Likes</span>
+      <span> {count} Likes</span>
     </div>
   );
 };
