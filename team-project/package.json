@@ -24,6 +24,7 @@
   "devDependencies": {
     "eslint-config-next": "^13.4.6",
     "eslint-plugin-react": "^7.32.2",
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "prop-types": "^15.8.1"
   }
 }
