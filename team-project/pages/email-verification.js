@@ -2,8 +2,8 @@ import firebase from '../lib/firebase';
 
 export default async function handleEmailVerification(req, res) {
   try {
-    const { oobCode } = req.query;
-
+    const { oobCode } = req.query || {}; 
+    
     // Apply the email verification action code using Firebase
     await firebase.auth().applyActionCode(oobCode);
 

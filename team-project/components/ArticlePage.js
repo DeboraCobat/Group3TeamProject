@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { fetchArticleById } from '../lib/firebase'; // 
+import { fetchArticleById } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
 import Like from './Like';
+import {db} from '../lib/firebase';
 
 const ArticlePage = ({ articleId }) => {
   const [article, setArticle] = useState({});
