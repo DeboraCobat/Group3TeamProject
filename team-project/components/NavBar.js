@@ -66,7 +66,7 @@ const NavBar = () => {
           // Displays the login/register link for non-authenticated users
           <li className={styles.navItem}>
             <Link href="/login" legacyBehavior>
-              <a className={styles.navLink}>Login/Register</a>
+              className={styles.navLink} Login/Register
             </Link>
           </li>
         )}
