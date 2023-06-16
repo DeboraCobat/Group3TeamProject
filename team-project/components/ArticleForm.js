@@ -62,14 +62,14 @@ const ArticleForm = () => {
     return (
       <p>
         Please{' '}
-        <a href="/login" onClick={handleLoginClick}>
+        <span onClick={handleLoginClick} style={{ textDecoration: 'underline', cursor: 'pointer' }}>
           log in
-        </a> {' '}
+        </span>{' '}
         to access this page.
       </p>
     ); // Render login prompt if user is not authenticated
   }
-
+  
   return (
     <div className={styles['form-wrapper']}>
       <form onSubmit={handleSubmit} className={styles['form-container']}>

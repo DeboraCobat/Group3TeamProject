@@ -5,7 +5,6 @@ import styles from '../styles/ArticlesList.module.css';
 import Pagination from './Pagination';
 import Like from 'components/Like';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 const ArticlesList = ({ initialArticles }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -71,15 +70,14 @@ const ArticlesList = ({ initialArticles }) => {
             >
               {article.title}
             </a>
+
           </h2>
           {article.coverImage && (
             <div className={styles['article-cover-image-container']}>
-              <Image
+              <img
                 src={article.coverImage}
                 alt={article.title}
                 className={styles['article-cover-image']}
-                width={500}
-                height={300}
               />
             </div>
           )}

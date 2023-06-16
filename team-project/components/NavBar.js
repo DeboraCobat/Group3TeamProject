@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useAuth } from '../context/AuthUserContext';
 import styles from '../styles/NavBar.module.css';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+
 
 const NavBar = () => {
   const { authUser, signOut } = useAuth();
@@ -12,7 +14,7 @@ const NavBar = () => {
   const handleSignOut = () => {
     signOut();
     router.push('/articles-list');
-  };  
+  };
 
   // Determines the link for the logo based on the user's authentication status
   const logoLink = authUser ? '/home-page-logged' : '/';
@@ -28,7 +30,13 @@ const NavBar = () => {
         <li className={styles.navItem}>
           <Link href={logoLink} legacyBehavior>
             <div className={styles.logoContainer}>
-              <img src="/logo.png" alt="Logo" className={styles.logo} />
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={30}
+                height={30}
+                className={styles.logo}
+              />
             </div>
           </Link>
         </li>
@@ -66,7 +74,7 @@ const NavBar = () => {
           // Displays the login/register link for non-authenticated users
           <li className={styles.navItem}>
             <Link href="/login" legacyBehavior>
-              className={styles.navLink} Login/Register
+              <a className={styles.navLink}>Login/Register</a>
             </Link>
           </li>
         )}
