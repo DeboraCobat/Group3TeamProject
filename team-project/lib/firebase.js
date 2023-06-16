@@ -17,7 +17,8 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
-
+// Export the Firebase auth object
+export const auth = firebase.auth();
 export const fetchData = async () => {
   try {
     const snapshot = await firebase.firestore().collection('articles').get();
