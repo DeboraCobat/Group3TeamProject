@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import styles from '../styles/LoginForm.module.css';
+import BacktoHome from './BacktoHome';
 
 const LoginForm = () => {
   const [email, setEmail] = useState(''); 
@@ -67,7 +68,9 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
+      <BacktoHome />
     </div>
+  
   );
 };
 

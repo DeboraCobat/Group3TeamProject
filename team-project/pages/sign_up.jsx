@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import { useState } from 'react';
 import styles from '../styles/SignUp.module.css';
+import BacktoHome from 'components/BacktoHome';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -87,6 +88,7 @@ const SignUp = () => {
           </form>
         )}
       </div>
+      <BacktoHome />
     </div>
   );
 };
