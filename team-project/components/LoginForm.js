@@ -57,9 +57,9 @@ const LoginForm = () => {
           <div className={styles.formGroup}>
             <button className={styles.button}>Login</button>
             {/* <button className={styles.button} onClick={signInWithGoogle}>Sign in with Google</button> */}
-             <Link href="/forgot_password">
-              <a>Forgot Password?</a>
-             </Link> 
+             <Link href="/PasswordResetPage">
+             Forgot Password?
+            </Link>
           </div>
           <div className={styles.formGroup}>
             <p>
