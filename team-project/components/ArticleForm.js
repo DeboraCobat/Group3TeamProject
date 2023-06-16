@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { getFirestore, collection, addDoc, updateDoc } from 'firebase/firestore';
 import styles from 'styles/ArticleForm.module.css';
 import { useAuth } from '../context/AuthUserContext';

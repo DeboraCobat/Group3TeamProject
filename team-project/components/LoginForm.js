@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
@@ -16,7 +16,7 @@ const LoginForm = () => {
   const onSubmit = (event) => {
     setError(null); // Clear any previous error
     signInWithEmailAndPassword(email, password) // Call the signInWithEmailAndPassword function with email and password
-      .then((authUser) => {
+      .then(( ) => {
         console.log("Success. The user is created in firebase"); // Log success message
         router.push('/home-page-logged'); // Navigate to the home page for logged-in users
       })

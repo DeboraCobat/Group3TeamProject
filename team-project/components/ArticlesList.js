@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
-import { fetchArticleById, fetchData } from '../lib/firebase';
+import { fetchData } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
 import Pagination from './Pagination';
 import Like from 'components/Like';
 import { useRouter } from 'next/router';
 
-const ArticlesList = ({ initialArticles }) => {
+const ArticlesList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

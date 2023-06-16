@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import { useState } from 'react';
 import styles from '../styles/SignUp.module.css';
@@ -8,7 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [passwordOne, setPasswordOne] = useState('');
   const [passwordTwo, setPasswordTwo] = useState('');
-  const router = useRouter();
+  // const router = useRouter();
   const [error, setError] = useState(null);
   const [isEmailSent, setIsEmailSent] = useState(false);
 
@@ -18,7 +18,7 @@ const SignUp = () => {
     setError(null);
     if (passwordOne === passwordTwo) {
       createUserWithEmailAndPassword(email, passwordOne)
-        .then((authUserCredential) => {
+        .then(() => {
           console.log('Success. The user is created in firebase');
           setIsEmailSent(true);
         })

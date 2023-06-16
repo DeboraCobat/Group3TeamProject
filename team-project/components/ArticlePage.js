@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchArticleById } from '../lib/firebase';
 import styles from '../styles/ArticlesList.module.css';
 import Like from './Like';
-import {db} from '../lib/firebase';
+// import {db} from '../lib/firebase';
 import { useRouter } from 'next/router';
 
 const ArticlePage = () => {

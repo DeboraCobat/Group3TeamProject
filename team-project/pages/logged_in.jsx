@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthUserContext';
 import styles from '../styles/LoggedIn.module.css';
 import HomePage from './home-page-logged';
 
 const LoggedIn = () => {
-  const { authUser, loading, signOut } = useAuth();
+  const { authUser, loading } = useAuth();
   const router = useRouter();
 
   // Listen for changes on loading and authUser, redirect if needed
