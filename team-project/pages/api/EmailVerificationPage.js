@@ -22,7 +22,7 @@ const EmailVerificationPage = () => {
     };
 
     handleEmailVerification();
-  }, []);
+  }, [router]); 
 
   return <HomePage />;
 };

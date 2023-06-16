@@ -19,7 +19,7 @@ const ProfilePage = () => {
     };
 
     fetchArticles();
-  }, [authUser?.id]);
+  }, [authUser?.email]);
 
   return (
     <div className="card" style={{ marginTop: '100px', marginBottom: '600px' }}>
